@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<!-- start other_data -->
+<title>头条-{site_title}</title>
+<!-- end other_data -->
+
+<!-- start head -->
+<!-- end head -->
+</head>
+
+<body class="bgf7">
+
+  <section class="content_box wo bgf pb100">
+
+
+  <header class="common_header clearfix">
+    <div class="headBox tc">头条</div>
+  </header>
+
+
+    <div class="mod articles" id="articles_box">
+
+        <!-- start subject -->
+            <div class="article-info pictures">
+
+            <div class="title">
+                <a href="{url}">
+                {title}
+                </a>
+            </div>
+
+            <div class="picture-list">
+
+                <!-- start pic -->
+                    <p class="art-img">
+                    <a href="{url}" class="pic">
+                    <img data-original="{pic_url}" src="images/default_shop.png">
+                    </a>
+                    </p>
+                <!-- end pic -->
+
+                    <p class="picture-more">
+                        <a href="{url}">查看详情</a>
+                    </p>
+            </div>
+            
+            <div class="art-other">
+                <div class="author">
+                <a href="{url}" target="_blank">{author}</a>
+                <p class="info">&nbsp;&nbsp;09-28
+                &nbsp;&nbsp;&nbsp;&nbsp;阅读&nbsp;({view_count})</p>
+                </div>
+            </div>
+            </div>
+
+        <!-- end subject -->
+
+
+    </div>
+
+
+    <!-- start page -->
+    <input type="hidden" id="url" data-box="#articles_box" data-pages="{total_page}" value="subject_page.ajax.php"/>
+    <!-- end page -->
+
+
+    <!-- start nav -->
+    <!-- end nav -->
+
+  </section>
+  
+<!-- start footer -->
+<!-- end footer -->
+
+
+</body>
+
+<script type="text/javascript">
+
+    //下一页
+    utils.isSlideRefresh();
+
+   //懒加载
+   jQuery('img').lazyload();
+
+</script>
+
+
+
+</html>

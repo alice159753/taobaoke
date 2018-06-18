@@ -1,0 +1,359 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<!-- start other_data -->
+<title>搜索-{site_title}</title>
+<!-- end other_data -->
+
+<!-- start head -->
+<!-- end head -->
+</head>
+
+
+<style type="text/css">
+.mui-bar-nav~.mui-content {
+    padding-top: 50px;
+    overflow: hidden;
+}
+.mui-bar-tab~.mui-content {
+    padding-bottom: 53px;
+}
+.mui-bar-tab~.mui-content {
+    padding-bottom: 50px;
+}
+.mui-bar-nav~.mui-content {
+    padding-top: 44px;
+}
+.mui-content {
+    background-color: #f4f4f4;
+}
+.mui-fullscreen {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.mui-content {
+    background-color: #efeff4;
+    -webkit-overflow-scrolling: touch;
+}
+.mui-row:after, .mui-row:before {
+    display: table;
+    content: ' ';
+}
+.mui-row.mui-fullscreen>[class*="mui-col-"] {
+    height: 100%;
+}
+.mui-row>[class*=mui-col-] {
+    float: left;
+}
+.mui-col-xs-3 {
+    width: 25%;
+}
+.mui-col-sm-1, .mui-col-sm-10, .mui-col-sm-11, .mui-col-sm-12, .mui-col-sm-2, .mui-col-sm-3, .mui-col-sm-4, .mui-col-sm-5, .mui-col-sm-6, .mui-col-sm-7, .mui-col-sm-8, .mui-col-sm-9, .mui-col-xs-1, .mui-col-xs-10, .mui-col-xs-11, .mui-col-xs-12, .mui-col-xs-2, .mui-col-xs-3, .mui-col-xs-4, .mui-col-xs-5, .mui-col-xs-6, .mui-col-xs-7, .mui-col-xs-8, .mui-col-xs-9 {
+    position: relative;
+    min-height: 1px;
+}
+body, div, dl, dt, dd, ul, ol, li, p, h1, h2, h3, h4, h5, h6, pre, form, fieldset, th, td, ul, li {
+    margin: 0;
+    padding: 0;
+}
+.mui-segmented-control.mui-segmented-control-inverted {
+    width: 100%;
+    border: 0;
+    border-radius: 0;
+}
+.mui-segmented-control.mui-segmented-control-vertical {
+    border-collapse: collapse;
+    border-width: 0;
+    border-radius: 0;
+}
+.mui-segmented-control {
+    font-size: 15px;
+    font-weight: 400;
+    position: relative;
+    display: table;
+    overflow: hidden;
+    width: 100%;
+    table-layout: fixed;
+    border: 1px solid #007aff;
+    border-radius: 3px;
+    background-color: transparent;
+    -webkit-touch-callout: none;
+}
+ul, ol, li {
+    list-style: none;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.mui-segmented-control.mui-segmented-control-inverted.mui-segmented-control-vertical .mui-control-item, .mui-segmented-control.mui-segmented-control-inverted.mui-segmented-control-vertical .mui-control-item.mui-active {
+    color: #505050;
+    border-bottom: 1px solid #ffffff;
+    background-color: transparent;
+}
+.mui-segmented-control.mui-segmented-control-inverted .mui-control-item {
+    color: inherit;
+    border: 0;
+}
+.mui-segmented-control .mui-control-item {
+    line-height: 50px;
+    width: 100%;
+}
+.mui-segmented-control .mui-control-item {
+    line-height: 38px;
+    display: table-cell;
+    overflow: hidden;
+    width: 1%;
+    -webkit-transition: background-color .1s linear;
+    transition: background-color .1s linear;
+    text-align: center;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #007aff;
+    border-color: #007aff;
+    border-left: 1px solid #007aff;
+}
+.mui-row.mui-fullscreen>[class*="mui-col-"] {
+    height: 100%;
+}
+.mui-row>[class*=mui-col-] {
+    float: left;
+}
+.mui-col-xs-9 {
+    width: 74%;
+}
+.mui-control-content {
+    position: relative;
+    display: none;
+}
+.classification-tit {
+    height: 30px;
+    line-height: 30px;
+    padding-left: 25px;
+    color: #505050;
+    font-size: 12px;
+    position: relative;
+    background-color: #fcfcfc;
+}
+.classification-item {
+    background-color: #fff;
+    border-bottom: 1px solid #f2f2f2;
+    border-top: 1px solid #f2f2f2;
+    padding: 10px;
+}
+.classification-item ul li {
+    width: 33.33%;
+    float: left;
+    text-align: center;
+}
+a, button, input, textarea, select {
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    background: none;
+    border: none;
+    -webkit-appearance: none;
+    font-family: "微软雅黑", 'Helvetica Neue', Helvetica, sans-serif;
+}
+.classification-img {
+    width: 3rem;
+    height: 3rem;
+    margin: 0 auto;
+}
+img {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.classification-txt {
+    font-size: 10px;
+    color: #505050;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    word-wrap: break-word;
+    word-break: break-all;
+    overflow: hidden;
+    -webkit-box-pack: center;
+}
+
+</style>
+
+<body>
+
+
+  <!--分类开始--> 
+      <div class="mui-content mui-row mui-fullscreen">
+          <div class="mui-col-xs-3 myscroll">
+              <ul id="segmentedControls" class="mui-segmented-control mui-segmented-control-inverted mui-segmented-control-vertical">
+                <li class="left-tit"><a href="#item1" class="mui-control-item">近期热门</a></li>
+                <li class="left-tit"><a href="#item2" class="mui-control-item">妈咪宝贝</a></li>
+                <li class="left-tit"><a href="#item3" class="mui-control-item">个护彩妆</a></li>
+                <li class="left-tit"><a href="#item1" class="mui-control-item">近期热门</a></li>
+                <li class="left-tit"><a href="#item2" class="mui-control-item">妈咪宝贝</a></li>
+                <li class="left-tit"><a href="#item3" class="mui-control-item">个护彩妆</a></li>
+                <li class="left-tit"><a href="#item1" class="mui-control-item">近期热门</a></li>
+                <li class="left-tit"><a href="#item2" class="mui-control-item">妈咪宝贝</a></li>
+                <li class="left-tit"><a href="#item3" class="mui-control-item">个护彩妆</a></li>
+                <li class="left-tit"><a href="#item1" class="mui-control-item">近期热门</a></li>
+                <li class="left-tit"><a href="#item2" class="mui-control-item">妈咪宝贝</a></li>
+                <li class="left-tit"><a href="#item3" class="mui-control-item">个护彩妆</a></li>
+              </ul>
+          </div>
+          <div id="segmentedControlContents" class="mui-col-xs-9 myscroll" style="border-left: 1px solid #c8c7cc;">
+          
+              <div id="item1" class="mui-control-content mui-active" style="display: block;">
+                <!--一组分类-->
+                <div class="classification-group">
+                  <div class="classification-tit">童装世界</div>
+                  <div class="classification-item">
+                    <ul class="clearfix">
+                      <li>
+                      <a href="#">
+                        <div class="classification-img"><img src="images/classification-img.jpg"></div>
+                        <div class="classification-txt">新生儿专用</div>
+                      </a>
+                      </li>
+                      <li>
+                      <a href="#">
+                        <div class="classification-img"><img src="images/classification-img.jpg"></div>
+                        <div class="classification-txt">新生儿专用</div>
+                      </a>
+                      </li>
+                      <li>
+                      <a href="#">
+                        <div class="classification-img"><img src="images/classification-img.jpg"></div>
+                        <div class="classification-txt">新生儿专用</div>
+                      </a>
+                      </li>
+                      <li>
+                      <a href="#">
+                        <div class="classification-img"><img src="images/classification-img.jpg"></div>
+                        <div class="classification-txt">新生儿专用</div>
+                      </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!--一组分类-->
+                <div class="classification-group">
+                  <div class="classification-tit">纸尿裤</div>
+                  <div class="classification-item">
+                    <ul class="clearfix">
+                      <li>
+                      <a href="#">
+                        <div class="classification-img"><img src="images/classification-img.jpg"></div>
+                        <div class="classification-txt">新生儿专用</div>
+                      </a>
+                      </li>
+                      <li>
+                      <a href="#">
+                        <div class="classification-img"><img src="images/classification-img.jpg"></div>
+                        <div class="classification-txt">新生儿专用</div>
+                      </a>
+                      </li>
+                      <li>
+                      <a href="#">
+                        <div class="classification-img"><img src="images/classification-img.jpg"></div>
+                        <div class="classification-txt">新生儿专用</div>
+                      </a>
+                      </li>
+                      <li>
+                      <a href="#">
+                        <div class="classification-img"><img src="images/classification-img.jpg"></div>
+                        <div class="classification-txt">新生儿专用</div>
+                      </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!--一组分类-->
+                <!--一组分类-->
+                <div class="classification-group">
+                  <div class="classification-tit">纸尿裤</div>
+                  <div class="classification-item">
+                    <ul class="clearfix">
+                      <li>
+                      <a href="#">
+                        <div class="classification-img"><img src="images/classification-img.jpg"></div>
+                        <div class="classification-txt">新生儿专用</div>
+                      </a>
+                      </li>
+                      <li>
+                      <a href="#">
+                        <div class="classification-img"><img src="images/classification-img.jpg"></div>
+                        <div class="classification-txt">新生儿专用</div>
+                      </a>
+                      </li>
+                      <li>
+                      <a href="#">
+                        <div class="classification-img"><img src="images/classification-img.jpg"></div>
+                        <div class="classification-txt">新生儿专用</div>
+                      </a>
+                      </li>
+                      <li>
+                      <a href="#">
+                        <div class="classification-img"><img src="images/classification-img.jpg"></div>
+                        <div class="classification-txt">新生儿专用</div>
+                      </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!--一组分类-->
+              </div>
+              
+              <div id="item2" class="mui-control-content">
+                <!--一组分类-->
+                <div class="classification-group">
+                  <div class="classification-tit">纸尿裤</div>
+                  <div class="classification-item">
+                    <ul class="clearfix">
+                      <li>
+                      <a href="#">
+                        <div class="classification-img"><img src="images/classification-img.jpg"></div>
+                        <div class="classification-txt">新生儿专用</div>
+                      </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!--一组分类-->
+              </div>
+              
+              <div id="item3" class="mui-control-content">
+                <!--一组分类-->
+                <div class="classification-group">
+                  <div class="classification-tit">童装世界</div>
+                  <div class="classification-item">
+                    <ul class="clearfix">
+                      <li>
+                      <a href="#">
+                        <div class="classification-img"><img src="images/classification-img.jpg"></div>
+                        <div class="classification-txt">新生儿专用</div>
+                      </a>
+                      </li>
+                      <li>
+                      <a href="#">
+                        <div class="classification-img"><img src="images/classification-img.jpg"></div>
+                        <div class="classification-txt">新生儿专用</div>
+                      </a>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <!--一组分类-->
+              </div>
+              
+          </div>
+      </div>
+  <!--分类结束--> 
+
+
+</body>
+</html>

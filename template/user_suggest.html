@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<!-- start other_data -->
+<title>意见反馈-{site_title}</title>
+<!-- end other_data -->
+
+
+<!-- start head -->
+<!-- end head -->
+
+</head>
+
+
+<body class="bgf7">
+  <section class="content_box xingweiyaoqiu bgf7 pb100">
+    <header class="common_header clearfix">
+      <div class="headBox tc">意见反馈</div>
+      <a href="javascript:void(0)" class="fl back_btn notxt" onclick="window.history.go(-1)">返回</a>
+      <a href="javascript:void(0)" class="fr c_1" onclick="form_submit()">提交</a>
+    </header>
+
+    <div class="textBox clearfix">
+      <textarea class="fl" placeholder="描述您的问题" id="content"></textarea>
+    </div>
+
+    
+  <!-- start nav -->
+  <!-- end nav -->
+
+  </section>
+  
+<!-- start footer -->
+<!-- end footer -->
+
+
+</body>
+
+
+
+<script type="text/javascript">
+  function form_submit()
+  {
+      if( $("#content").val() == "" )
+      {
+          alert('建议内容不能为空！');
+          return '';
+      }
+
+      myAjax('user_suggest_make.ajax.php', "content="+$("#content").val(), 'POST');
+  }
+</script>
+
+
+
+</html>

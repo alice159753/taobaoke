@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- start other_data -->
+<title>{title}-{site_title}</title>
+<!-- end other_data -->
+
+
+<!-- start head -->
+<!-- end head -->
+
+</head>
+
+<script type="text/javascript">
+  function show_weixin_box_make()
+  {
+      var copy_taobaoling = $('#copy_taobaoling').val();
+      $("#copy_taobaoling_html").html('链接: '+copy_taobaoling);
+
+     $(".overlay").css('display','block');
+
+     $("#show_weixin_box").removeClass('nodis');
+  }
+
+  function my_copy()
+  {
+      var copy_taobaoling = $('#copy_taobaoling').val();
+
+      var clipboard2 = new Clipboard('.copy_c', {
+       text: function() {
+           return copy_taobaoling;
+       }
+      });
+
+      clipboard2.on('success', function(e) {
+          $("#copy_c").html('复制成功');
+          $("#copy_c").css('background-color','#5fdb58');
+      });
+
+      clipboard2.on('error', function(e) {
+          $("#copy_c").html('复制失败');
+          $("#copy_c").css('background-color','#ff2e48');
+      });
+  }
+
+  function overlay_close()
+  {
+
+     $(".overlay").css('display','none');
+
+     $("#show_weixin_box").addClass('nodis');
+
+  }
+
+</script>
+
+
+
+<body class="bgf7" id="back_top">
+
+
+  <section class="content_box pb100">
+   
+<!-- start product -->
+
+    <input type="hidden" name="product_no" id="product_no" value="{no}"/>
+
+    <input type="hidden" name="copy_taobaoling" id="copy_taobaoling" value="{click_url}"/>
+
+
+    <header class="common_header clearfix">
+      <div class="headBox tc  text-overflow ">宝贝详情</div>
+      <a href="javascript:void(0)" class="fl back_btn notxt" onclick="window.history.go(-1)">返回</a>
+      <a href="index.php" class="fr home_btn notxt">首页</a>
+    </header>
+
+
+    <div class="swiper-container bannerBox">
+      <div class="swiper-wrapper">
+        
+       <!-- start pic_lists --> 
+       <div class="swiper-slide">
+        <a href="{coupon_link}"><img src="{pic_url}" src="{title}"></a>
+        </div>
+       <!-- end pic_lists --> 
+
+      </div>
+      <div class="swiper-pagination pagination1"></div>
+    </div>
+
+
+
+    <div class="product_detail">
+
+       <div class="title">{title}</div>
+
+        <div class="price">
+            <span class="trueprice">¥{zk_final_price}</span>
+            <span style="font-size:12px;color:#555555;text-decoration:line-through;padding-right:10px;display: inherit;">原价 ¥{reserve_price}</span>
+       </div>
+
+       <div class="price shop_right">
+
+          <div class="types clearfix">
+             <span class="color {color}" style="font-weight: bold;color: #f45454;">抢购时间：{start_time}-{end_time}</span>
+          </div>
+
+         <div class="playBtns">
+          <a href="javascript:;" class="share_btn" onclick="share()">分享</a>
+        </div>
+
+       </div>
+
+        <div class="content" style="display:block">
+            <a class="more" href="javascript:;" onclick="$('#truecontent').toggle()">
+                <span>商品图文详情（点击查看）</span>
+            </a>
+
+            <div class="truecontent" id="truecontent" style="display: none">
+               
+               <!-- start description_lists -->
+              <p><img src="images/default_shop.png"  data-original="{pic_url}"/></p>
+               <!-- end description_lists -->
+
+            </div>
+
+        </div>
+
+
+        <div class="normal item-recommend clear content" style="padding-bottom:30px;margin-top:-40px;display:block">
+             <a class="more" href="javascript:;">
+                <span>本栏目更多精品</span>
+            </a>
+
+            <div class="shop_box" id="shop_box">
+
+            <!-- start like -->
+              <div class="shop_item" >
+
+                <div class="shop_left">
+                  <a href="product_detail.php?no={no}">
+                        <img data-original="{pic_url}" class="scrollLoading" alt="{title}" src="images/default_shop.png">
+                  </a>
+                    </div>
+                    
+                    <div class="shop_right">
+                      
+                  <a href="product_detail.php?no={no}">
+                        <h1>{title}</h1>
+                  </a>
+                        
+                  <p class="sales_num">销量:<span>{total_amount}</span>, 优惠卷:<span>({start_time}~{end_time})</span></p>
+
+                        <div class="coupon">
+                      <div class="coupon_after">券后:<span>￥<label>{zk_final_price}</label></span></div>
+
+                        <a href="product_detail.php?no={no}">
+                      
+                        <div class="coupon_button"><span class="coupon_price">￥<label>{reserve_price}</label></span><span class="coupon_botton_text">立即购买</span></div>
+
+                      </a>
+
+                  </div>
+                                
+                    </div>
+
+                </div>
+            <!-- end like -->
+
+            </div>
+
+
+        </div>
+
+
+        <!-- start is_weixin_botton -->
+        <div class="product_button_box">
+            <div class="product_button">
+                <a href="javascript:;" onclick="show_weixin_box_make()">{button_title}</a>
+            </div>
+        </div>
+        <!-- end is_weixin_botton -->
+
+
+        <!-- start is_not_weixin_botton -->
+        <div class="product_button_box">
+            <div class="product_button">
+              <a href="{click_url}" target="_blank">{button_title}</a>
+            </div>
+        </div>
+        <!-- end is_not_weixin_botton -->
+
+
+</div>
+
+
+<div class="dialogBox nodis" id="share_box">
+  <div class="dialogBg"></div>
+  <div class="dialogCon bgf">
+    <div class="shareBox tc">
+        <div class="title"><span>分享到</span></div>
+        <div class="btns clearfix">
+        <a href="#" onclick="call('wechatFriend')" class="wx_btn text-overflow">微信</a>
+        <a href="#" onclick="call('wechatTimeline')" class="pyq_btn text-overflow">朋友圈</a>
+        <a href="#" onclick="call('qqFriend')" class="qq_btn text-overflow">QQ</a>
+        <a href="#"  onclick="call('qZone')" class="kj_btn text-overflow">空间</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="dialogBox nodis" id="copy_box">
+  <div class="dialogBg"></div>
+  <div class="dialogCon">
+    <div class="copyBox">
+      <a href="#"><span class="copy_box">复制链接</span></a>
+    </div>
+  </div>
+</div>
+
+
+<div id="show_weixin_box" class="nodis pass_buy">
+  <h2>链接购买</h2>
+  <div class="" id="copy_textarea">
+    <textarea readonly="" name="" rows="" cols="" id="copy_taobaoling_html">链接：￥1jDm0iDjnfH￥ </textarea>
+  </div>
+
+  <div class="buy_copydiv">
+    <a href="###" class="copy_c" id="copy_c" onclick="my_copy()">一键复制</a>
+  </div>
+
+  <div class="buy_hint1"> 点击复制后，请打开 <span></span> 购买</div>
+  <div class="buy_hint2">注：若一键复制失败，请长按 <span></span> 内文字 或 用【浏览器领券】模式 </div>
+</div>
+
+
+
+<!-- end product -->
+
+
+
+    <!-- start top -->
+    <!-- end top -->
+
+  </section>
+  
+<!-- start footer -->
+<!-- end footer -->
+
+
+<div class="overlay" id="overlay" style="display:none;" onclick="overlay_close()"></div>
+
+
+<script type="text/javascript" src="js/clipboard/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="js/myshare.js"></script>
+
+
+  <script>
+  var swiper = new Swiper(".bannerBox", {
+                pagination: ".bannerBox .swiper-pagination",
+                paginationClickable: !0,
+                autoplay: 2e3,
+                preventClicks: !1
+            })
+
+    //懒加载
+    jQuery('img').lazyload();
+
+    $(document).ready(function(){
+        
+        var width = $(".content_box").width();
+
+        $(".product_button_box").width(width);
+
+        $("#truecontent img").width(width);
+
+    });
+
+  function collect()
+  {
+     var collect = $("#collect").hasClass('active');
+     collect = collect == false ? 'collect' : 'cancel_collect';
+
+     var product_no = $("#product_no").val();
+
+     $.ajax
+         ({
+             url: "product_collect.ajax.php",  
+             data: "collect="+collect+"&product_no="+product_no,
+             type:'post',
+             async: true,
+             dataType: 'text',
+             error: function(){  
+                 alert('error');  
+             },  
+             success: function(data)
+             {  
+                if( data != 'ok' )
+                {
+                  alert(data);
+                  window.location.href = 'user_login.php';
+                  return '';
+                }
+
+                //当前收藏
+                if( collect == 'collect' )
+                {
+                   $("#collect").addClass('active');
+                }
+                else
+                {
+                    $("#collect").removeClass('active');
+                }
+             }
+
+         });
+  }
+
+</script>
+
+
+
+
+
+<!-- 分享 -->
+<!-- start product -->
+<script>
+    var nativeShare = new NativeShare()
+    var shareData = {
+        title: '{title}',
+        desc: '{description}',
+        // 如果是微信该link的域名必须要在微信后台配置的安全域名之内的。
+        link: '{article_url}',
+        icon: '{thumb_pic}',
+        // 不要过于依赖以下两个回调，很多浏览器是不支持的
+        success: function() {
+            //alert('success')
+        },
+        fail: function() {
+            //alert('fail')
+        }
+    }
+
+    nativeShare.setShareData(shareData);
+
+    function call(command) 
+    {
+        try 
+        {
+            nativeShare.call(command);
+        } 
+        catch (err) 
+        {
+            alert('当前浏览器不支持分享，请复制粘贴');
+
+            $("#share_box").addClass('nodis');
+            $("#copy_box").removeClass('nodis');
+
+            //alert(err.message);
+        }
+    }
+
+    function setTitle(title) 
+    {
+        nativeShare.setShareData({
+            title: title,
+        })
+    }
+
+  function share()
+  {
+      $("#copy_box").addClass('nodis');
+      $("#share_box").removeClass('nodis');
+  }
+
+</script>
+<!-- end product -->
+
+
+<!-- 复制粘贴 -->
+
+<!-- start product -->
+<script>
+var clipboard = new Clipboard('.copy_box', {
+       text: function() {
+           return '{article_url}';
+       }
+});
+
+clipboard.on('success', function(e) {
+    alert('复制成功!');
+    $("#copy_box").addClass('nodis');
+});
+
+clipboard.on('error', function(e) {
+    alert('复制失败!');
+    $("#copy_box").addClass('nodis');
+});
+
+</script>
+<!-- end product -->
+
+
+</body>
+</html>

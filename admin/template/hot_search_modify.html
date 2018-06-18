@@ -1,0 +1,109 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>后台管理</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="table">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="stylesheet" href="js/amazeui/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="js/amazeui/css/admin.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+
+  <!-- start nav -->
+  <!-- end nav -->
+
+
+<div class="am-cf admin-main">
+
+  <!-- start menu -->
+  <!-- end menu -->
+
+  <!-- content start -->
+  <div class="admin-content">
+    <div class="admin-content-body">
+      <div class="am-cf am-padding am-padding-bottom-0">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">热门搜索</strong> / <small>修改</small></div>
+      </div>
+
+      <hr/>
+
+      <div class="am-g">
+
+        <div class="am-u-sm-12 am-u-md-4 am-u-md-push-8">
+        </div>
+
+<!-- start data -->
+        <div class="am-u-sm-12 am-u-md-8 am-u-md-pull-4">
+          <form class="am-form am-form-horizontal" action="hot_search_modify_make.php" method="post" enctype="multipart/form-data" id="form_box">
+
+          <input type="hidden" value="{no}" name="no"/>   
+
+            <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">标题</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="title" value="{title}">
+              </div>
+            </div>
+
+            <div class="am-form-group">
+              <div class="am-u-sm-9 am-u-sm-push-3">
+                <button type="button" class="am-btn am-btn-primary" onclick="form_submit()">保存</button>
+
+                <button type="button" class="am-btn am-btn-primary" onclick="window.history.go(-1)">返回</button>
+
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+<!-- end data -->
+
+  <!-- start footer -->
+  <!-- end footer -->
+
+  </div>
+  <!-- content end -->
+
+</div>
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="js/amazeui/js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="js/amazeui/js/amazeui.min.js"></script>
+<script src="js/amazeui/js/app.js"></script>
+<script src="js/common.js"></script>
+
+<script type="text/javascript">
+  function form_submit()
+  {
+      var url = $('#form_box').attr('action');
+      var param = $('#form_box').serialize();
+      
+      myAjax(url, param, 'POST');
+  }
+</script>
+
+<!-- start data -->
+<script type="text/javascript">
+  $("#is_show").val('{is_show}');
+
+</script>
+<!-- end data -->
+
+
+
+
+</body>
+</html>

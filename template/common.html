@@ -1,0 +1,165 @@
+<!-- start head -->
+
+ <meta charset="utf-8" />
+ <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+ <meta name="format-detection" content="telephone=no">
+ <meta name="format-detection" content="email=no">
+ <meta name="format-detection" content="address=no">
+ <meta name="description" content="{site_description}" />
+ <meta name="keywords" content="{site_keyword}" />
+ <link rel="alternate icon" type="{site_logo}" href="{site_logo}">
+
+ <script src="js/jquery1.42.min.js"></script>
+
+ <link rel="stylesheet" href="css/common.css?r=9" />
+ <link rel="stylesheet" href="css/index.css?r=9" />
+ <link rel="stylesheet" href="js/swiper/swiper.css" />
+
+
+<!-- end head -->
+
+
+<!-- start nav -->
+<div class="h25"></div>
+        
+<div class="fixBottomMenuBox clearfix">
+<a href="index.php" class="bm_bg1 {index}">首页</a>
+<a href="product_lists.php?category_no=9" class="bm_bg2 {product_lists}">精选</a>
+<a href="taoqianggou_lists.php" class="bm_bg5 {taoqianggou_lists}">淘抢购</a>
+<a href="subject.php" class="bm_bg3 {subject}">头条</a>
+<a href="user.php" class="bm_bg4 {user}">我</a>
+</div>
+<!-- end nav -->
+
+
+<!-- start top -->
+<div class="side_fixed">
+<a href="#back_top"><div id="goTop" class="go_top" style="display: block;"></div></a>
+</div>
+<!-- end top -->
+
+
+<!-- start footer -->
+<script src="js/common.js"></script>
+<script src="js/swiper/swiper.js"></script>
+<script src="js/sliderefresh.js"></script>  
+<script src="js/lazyload/jquery.lazyload.js"></script>  
+<script src="js/superslide/jquery.SuperSlide.2.1.1.js"></script>
+<script src="js/tools.js"></script>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+    <!-- window.shareData = {  
+          "imgUrl": "{shareData_imgUrl}", 
+          "sendFriendLink": "{shareData_sendFriendLink}",
+          "tTitle": "{shareData_tTitle}",
+          "tContent": "{shareData_tContent}"
+        };-->
+
+
+
+
+<script type="text/javascript">
+
+window.shareData2 = {  
+          "imgUrl": $("img").attr('src'), 
+          "sendFriendLink": "{shareData_sendFriendLink}",
+          "tTitle": $("title").html(),
+          "tContent": $("title").html()
+        };
+
+
+  wx.config({
+    //debug: true,
+    appId: '{appId}',
+    timestamp: {timestamp},
+    nonceStr: '{nonceStr}',
+    signature: '{signature}',
+    jsApiList: [
+      // 所有要调用的 API 都要加到这个列表中
+       'checkJsApi','onMenuShareTimeline','onMenuShareAppMessage','onMenuShareQQ','onMenuShareWeibo','hideMenuItems','hideAllNonBaseMenuItem','showMenuItems'
+    ]
+  });
+
+
+ wx.ready(function () {
+
+
+ wx.onMenuShareAppMessage({
+      "title": window.shareData2.tTitle,
+      "desc": window.shareData2.tContent,
+      "link": window.shareData2.sendFriendLink,
+      "imgUrl": window.shareData2.imgUrl,
+      "img_width": "640",
+      "img_height": "640",
+      "type": '',
+      "dataUrl": '',
+      "success": function() {
+        shareHandle('friend');
+    }
+  });
+
+ wx.onMenuShareTimeline({
+      "title": window.shareData2.tTitle,
+      "desc": window.shareData2.tContent,
+      "link": window.shareData2.sendFriendLink,
+      "imgUrl": window.shareData2.imgUrl,
+      "img_width": "640",
+      "img_height": "640",
+      "success": function() {
+        shareHandle('frineds');
+    }
+  });
+
+    wx.onMenuShareQQ({
+      "title": window.shareData2.tTitle,
+      "desc": window.shareData2.tContent,
+      "link": window.shareData2.sendFriendLink,
+      "imgUrl": window.shareData2.imgUrl,
+      "img_width": "640",
+      "img_height": "640",    
+      "success": function() {
+        shareHandle('qq');
+      }        
+  });
+
+    wx.onMenuShareWeibo({
+      "title": window.shareData2.tTitle,
+      "desc": window.shareData2.tContent,
+      "link": window.shareData2.sendFriendLink,
+      "imgUrl": window.shareData2.imgUrl,
+      "img_width": "640",
+      "img_height": "640",
+      "success": function() {
+        shareHandle('weibo');
+    }
+  }); 
+
+
+wx.hideMenuItems({
+menuList: ['menuItem:copyUrl','menuItem:originPage','menuItem:openWithQQBrowser','menuItem:openWithSafari','menuItem:share:email','menuItem:share:brand','menuItem:editTag','menuItem:delete','menuItem:readMode'] // 要隐藏的菜单项，只能隐藏“传播类”和“保护类”按钮，所有menu项见附录3
+});
+
+
+//wx.showMenuItems({
+//menuList: ['appMessage'] // 要显示的菜单项，所有menu项见附录3
+//});
+
+
+//wx.hideAllNonBaseMenuItem();
+
+
+  });
+
+
+ function shareHandle(type)
+ {
+
+ }
+
+</script>
+
+
+<!-- <div style="display: none">
+<script src="https://s22.cnzz.com/z_stat.php?id=1264603834&web_id=1264603834" language="JavaScript"></script>
+</div> -->
+<!-- end footer -->

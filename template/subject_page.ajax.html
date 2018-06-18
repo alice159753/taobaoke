@@ -1,0 +1,43 @@
+ <!-- start subject -->
+     <div class="article-info pictures">
+
+     <div class="title">
+         <a href="{url}">
+         {title}
+         </a>
+     </div>
+
+     <div class="picture-list">
+
+         <!-- start pic -->
+             <p class="art-img">
+             <a href="{url}" class="pic">
+             <img data-original="{pic_url}" src="images/default_shop.png">
+             </a>
+             </p>
+         <!-- end pic -->
+
+             <p class="picture-more">
+                 <a href="{url}">查看详情</a>
+             </p>
+     </div>
+     
+     <div class="art-other">
+         <div class="author">
+         <a href="{url}" target="_blank">{author}</a>
+         <p class="info">&nbsp;&nbsp;09-28
+         &nbsp;&nbsp;&nbsp;&nbsp;阅读&nbsp;({view_count})</p>
+         </div>
+     </div>
+     </div>
+
+ <!-- end subject -->
+
+
+
+<script type="text/javascript">
+
+   //懒加载
+   jQuery('img').lazyload();
+
+</script>

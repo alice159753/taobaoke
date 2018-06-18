@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<!-- start other_data -->
+<title>修改个人资料-{site_title}</title>
+<!-- end other_data -->
+
+
+<!-- start head -->
+<!-- end head -->
+
+
+</head>
+
+
+<body class="bgf">
+  <section class="content_box bgf pb100" id="first_box">
+    <header class="common_header clearfix">
+      <div class="headBox tc">修改个人资料</div>
+      <a href="javascript:void(0)" class="fl back_btn notxt" onclick="window.history.go(-1)">返回</a>
+    </header>
+
+<!-- start user -->
+ <form action="user_config_info_make.php" method="post" enctype="multipart/form-data" id="form_box" name="form_box">
+
+    <div class="listBox5 statu1 pl40 pr40">
+
+      <div class="item pr54 active1 oh next_bg">
+        <div class="tempItem clearfix">
+          <div class="fl">头像</div>
+          <div class="fr" style="right: 20px;">
+
+          <div class="headTitle headTitle1 uploadBox">
+          <input type="file" class="nodis" name="headimgurl" id="headimgurl"  onchange="upload()">
+
+          <input type="hidden" name="fileList" id="fileList">
+
+          <img style="width: 41px;height: 41px; margin-top: 4px;" src="{headimgurl}" id="show_img" onclick="clickfile()"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="item pr54 oh active1 next_bg">
+        <div class="tempItem clearfix">
+          <div class="fl">昵称</div>
+          <div class="fr">
+            <input type="text" name="nickname" value="{nickname}">
+          </div>
+        </div>
+      </div>
+
+      <div class="item pr54 oh active1 next_bg">
+        <div class="tempItem clearfix">
+          <div class="fl">性别</div>
+          <div class="fr"  style="right: 20px;">
+              <select name="sex" id="sex">
+                <option value="1">男</option>
+                <option value="2">女</option>
+              </select>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="item pr54 oh active1 next_bg">
+        <div class="tempItem clearfix">
+          <div class="fl">电话</div>
+          <div class="fr">
+            <input type="text" name="phone" value="{phone}">
+          </div>
+        </div>
+      </div>
+
+
+      <div class="item pr54 oh active1 next_bg">
+        <div class="tempItem clearfix">
+          <div class="fl">邮箱</div>
+          <div class="fr">
+            <input type="text" name="email" value="{email}">
+          </div>
+        </div>
+      </div>
+
+      <div class="item pr54 oh active1 next_bg">
+        <div class="tempItem clearfix" onclick="comment_submit()">
+          <div class="fl">签名</div>
+          <div class="fr">
+
+          <input type="hidden" name="signature" value="{signature}" id="signature">
+
+<!--             <input type="text" name="signature" value="{signature}">
+ -->          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <a href="javascript:void(0)" class="common_btn1 mt100" onclick="submit_make()">提交</a>
+</form>
+<!-- end user -->
+
+  <!-- start nav -->
+  <!-- end nav -->
+  
+  </section>
+
+
+
+<!-- start user -->
+<div id="circle_post_commment_box" style="display: none">
+<section class="content_box xingweiyaoqiu bgf2">
+    <header class="common_header bgf2 clearfix">
+      <div class="headBox tc">签名</div>
+      <a href="javascript:void(0)" class="fl back_btn notxt" onclick="comment_close()">返回</a>
+      <a href="javascript:void(0)" class="fr c_1" onclick="comment_submit_make()">完成</a>
+    </header>
+
+    <div class="textBox clearfix">
+      <textarea class="fl" placeholder="请输入签名" id="c_signature">{signature}</textarea>
+    </div>
+
+</section>
+</div>
+<!-- end user -->
+
+
+<script src="/js/jquery-3.2.0.min.js"></script>
+<script src="/js/common.js"></script>
+
+
+</body>
+
+
+<script type="text/javascript">
+  
+function submit_make()
+{
+   $("#form_box").submit();
+}
+
+</script>
+
+<!-- start user -->
+<script type="text/javascript">
+
+$("#sex").val('{sex}');
+
+</script>
+
+<!-- end user -->
+
+
+<script type="text/javascript">
+  
+ function upload()
+ {
+
+  var formData = new FormData();
+
+  formData.append("file",$("#headimgurl")[0].files[0]);
+
+  $.ajax({ 
+  url : 'img_upload.ajax.php', 
+  type : 'POST', 
+  data : formData, 
+  // 告诉jQuery不要去处理发送的数据
+  processData : false, 
+  // 告诉jQuery不要去设置Content-Type请求头
+  contentType : false,
+  dataType: 'json',
+  beforeSend:function(){
+  console.log("正在进行，请稍候");
+  },
+  success : function(responseStr) 
+  { 
+    if( responseStr['result']['status']['code']==0 )
+    {
+        fileList = [];
+        fileList.push(responseStr['result']['data']['url']);
+
+        $("#show_img").attr("src", responseStr['result']['data']['url']);
+
+        $("#fileList").val(fileList);
+    }
+  }, 
+  error : function(responseStr) { 
+    console.log("error");
+  } 
+  });
+
+
+ }
+
+function clickfile()
+{
+  $("#headimgurl").trigger("click");
+}
+
+
+//行为要求
+function comment_submit()
+{
+    $("#first_box").css("display", "none");
+    $("#circle_post_commment_box").css("display", "block");
+}
+
+function comment_close()
+{
+    $("#first_box").css("display", "block");
+    $("#circle_post_commment_box").css("display", "none");
+}
+
+function comment_submit_make()
+{
+    $("#first_box").css("display", "block");
+    $("#circle_post_commment_box").css("display", "none");
+
+    $("#signature").val($("#c_signature").val());
+}
+
+
+</script>
+
+
+
+
+</html>

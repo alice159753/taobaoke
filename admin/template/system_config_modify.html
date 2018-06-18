@@ -1,0 +1,188 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>后台管理</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="table">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="stylesheet" href="js/amazeui/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="js/amazeui/css/admin.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+
+  <!-- start nav -->
+  <!-- end nav -->
+
+
+<div class="am-cf admin-main">
+
+  <!-- start menu -->
+  <!-- end menu -->
+
+  <!-- content start -->
+  <div class="admin-content">
+    <div class="admin-content-body">
+      <div class="am-cf am-padding am-padding-bottom-0">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">系统配置</strong> / <small>配置</small></div>
+      </div>
+
+      <hr/>
+
+      <div class="am-g">
+
+        <div class="am-u-sm-12 am-u-md-4 am-u-md-push-8">
+        </div>
+
+<!-- start data -->
+        <div class="am-u-sm-12 am-u-md-8 am-u-md-pull-4">
+          <form class="am-form am-form-horizontal" action="system_config_modify_make.php" method="post" enctype="multipart/form-data" id="form_box">
+
+          <input type="hidden" value="{no}" name="no"/>   
+
+            <div class="am-form-group">
+              <label for="user-name" class="am-u-sm-3 am-form-label">网站名称</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="site_name" value="{site_name}">
+              </div>
+            </div>
+
+            <div class="am-form-group">
+              <label for="user-email" class="am-u-sm-3 am-form-label">网站标题</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="site_title" value="{site_title}">
+              </div>
+            </div>
+
+            <div class="am-form-group">
+              <label for="user-phone" class="am-u-sm-3 am-form-label">关键字</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="site_keyword"  value="{site_keyword}">
+              </div>
+            </div>
+
+            <div class="am-form-group">
+              <label for="user-phone" class="am-u-sm-3 am-form-label">网站描述</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="site_description"    value="{site_description}">
+              </div>
+            </div>
+
+            <div class="am-form-group">
+              <label for="user-phone" class="am-u-sm-3 am-form-label">公司地址</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="comany_address"  value="{comany_address}">
+              </div>
+            </div>
+
+            <div class="am-form-group">
+              <label for="user-phone" class="am-u-sm-3 am-form-label">电话</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="phone"    value="{phone}">
+              </div>
+            </div>
+
+
+            <div class="am-form-group">
+              <label for="user-phone" class="am-u-sm-3 am-form-label">qq</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="qq"    value="{qq}">
+              </div>
+            </div>
+
+
+            <div class="am-form-group">
+              <label for="user-phone" class="am-u-sm-3 am-form-label">skype</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="skype"    value="{skype}">
+              </div>
+            </div>
+
+            <div class="am-form-group">
+              <label for="user-phone" class="am-u-sm-3 am-form-label">wechat</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="wechat"    value="{wechat}">
+              </div>
+            </div>
+
+           <div class="am-form-group">
+              <label for="user-phone" class="am-u-sm-3 am-form-label">email</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="email"    value="{email}">
+              </div>
+            </div>
+
+ <div class="am-form-group">
+              <label for="user-phone" class="am-u-sm-3 am-form-label">网站logo</label>
+              <div class="am-u-sm-9" id="pic_box">
+
+<div style="margin-top:5px;">
+ <input type="file" name="picList[]" style="display: inline;" onchange="pic_upload()" id="picList">
+</div>
+
+              </div>
+            </div>
+
+            <div class="am-form-group">
+              <label for="user-phone" class="am-u-sm-3 am-form-label"></label>
+              <div class="am-u-sm-9">
+               <div style="margin-top:5px;">
+                <img src="{site_logo}" style="width: 150px;height: 150px;" id="show_img"/>
+             </div>
+
+              </div>
+            </div>
+
+
+            <div class="am-form-group">
+              <div class="am-u-sm-9 am-u-sm-push-3">
+                <button type="button" class="am-btn am-btn-primary" onclick="form_submit()">保存</button>
+              </div>
+            </div>
+
+
+<input type="hidden" name="fileList" id="fileList">
+
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+<!-- end data -->
+
+  <!-- start footer -->
+  <!-- end footer -->
+
+  </div>
+  <!-- content end -->
+
+</div>
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="js/amazeui/js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="js/amazeui/js/amazeui.min.js"></script>
+<script src="js/amazeui/js/app.js"></script>
+<script src="js/common.js"></script>
+
+<script type="text/javascript">
+  function form_submit()
+  {
+      var url = $('#form_box').attr('action');
+      var param = $('#form_box').serialize();
+      
+      myAjax(url, param, 'POST');
+  }
+</script>
+
+
+</body>
+</html>

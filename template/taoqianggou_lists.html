@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- start other_data -->
+<title>淘抢购-{site_title}</title>
+<!-- end other_data -->
+
+<!-- start head -->
+<!-- end head -->
+</head>
+
+<body class="bgf2 fs26">
+        
+    <section class="content_box bgf2 index pb100">
+
+<!-- start other_data -->
+    <header class="common_header clearfix">
+      <div class="headBox tc">淘抢购</div>
+      <a href="javascript:void(0)" class="fl back_btn notxt" onclick="window.history.go(-1)">返回</a>
+    </header>
+
+    <div class="goods_nav">
+        <ul>
+
+
+          <li class="{price_real_selected}">
+            <a href="javascript:;" onclick="type_change('{sort}', 'zk_final_price ')">价格</a>
+          </li>
+
+          <li class="{sale_num_selected}">
+            <a href="javascript:;" onclick="type_change('{sort}', 'total_amount ')">热销</a>
+          </li>
+
+          <li class="{coupon_save_price_selected}">
+             <a href="javascript:;" onclick="type_change('{sort}', 'reserve_price - zk_final_price ')">券额</a>
+          </li>
+
+          <li class="{no_selected}">
+            <a href="javascript:;" onclick="type_change('{sort}', 'no ')">综合</a>
+          </li>
+
+        </ul>
+    </div>
+<!-- end other_data -->
+
+
+  <div id="div_box">
+    <!-- start product -->
+        
+        <div class="taoqianggoubox am-margin-top">
+
+          <div class="am-inline-block am-margin-left-xs" style="width:33%;padding-top: 10px;">
+
+            <a href="taoqianggou_detail.php?no={no}" class="abuy yhjurl2 ">
+              <img data-original="{pic_url}" src="images/default_shop.png" class="fq-image"></a>
+            </div>
+
+            <div class="am-g am-fr" style="width:63%; height:100px;">
+
+                <div class="am-u-sm-7 am-padding-right-xs fs26" style="display: inline-block;float: left;padding-top: 10px;">
+                  <strong data-id="557105066194" class="line-clamp fs26" id="item_details">
+                      <a href="taoqianggou_detail.php?no={no}">{title}</a>
+                    </strong>
+
+                    <div class="am-cf" style="line-height:2.3">
+                      <span class="fs26 fq-color-gray">销量{total_amount}</span>
+                    </div>
+
+                    <div class="fq-color-danger am-fl youhuijuan">
+                      <span class="fs26">优惠券</span>
+                      <strong class="fs36 price">￥{save_price}</strong>
+                    </div>
+                  </div>
+
+                  <div class="am-text-center am-u-sm-5 fq-prize taoqianggouyouhuijuanbox">
+
+                    <div class="fs26 am-margin-left-xs taoqianggouyouhuijuan">
+
+                      <div class=" am-fl fs26 fq-discount">
+
+                        
+                        <p class="am-text-xl" style="text-decoration:line-through;font-size: 13px"><span class="fs26" style="color:#fff">￥</span>{reserve_price}</p>
+
+                        <span class="fs26" style="color:#fff">￥</span>
+                        <span class="am-text-xl">{zk_final_price}</span>
+
+                        <a class="abuy fs26 am-radius am-block fq-a-focus am-margin-top-sm" href="taoqianggou_detail.php?no={no}">领券购买</a>
+
+                      </div>
+
+                      </div>
+
+                    </div>
+                </div>
+
+         </div>
+
+    <!-- end product -->
+
+    </div>
+
+    <!-- start page -->
+    <input type="hidden" id="url" data-box="#div_box" data-data='{data}' data-pages="{total_page}" value="taoqianggou_lists_page.ajax.php"/>
+    <!-- end page -->
+
+
+    <!-- start nav -->
+    <!-- end nav -->
+
+
+    </section>
+            
+</body>
+    
+<!-- start footer -->
+<!-- end footer -->
+
+
+
+    <script>
+
+      //下一页
+      utils.isSlideRefresh();
+
+       //懒加载
+      jQuery('img').lazyload();
+
+      function type_change(sort, type)
+      {
+          window.location.href = 'taoqianggou_lists.php?order='+type+' '+sort;
+      }
+
+
+    </script>
+
+</html>

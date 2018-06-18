@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+<!-- start other_data -->
+<title>我的积分-{site_title}</title>
+<!-- end other_data -->
+
+
+<!-- start head -->
+<!-- end head -->
+
+</head>
+
+
+<body class="bgf">
+  <section class="content_box xiguanbi pb100">
+    <header class="common_header clearfix">
+      <div class="headBox tc">我的积分</div>
+      <a href="javascript:void(0)" class="fl back_btn notxt" onclick="window.history.go(-1)">返回</a>
+    </header>
+
+<!-- start integral -->
+    <div class="headtitle tc">今日获得积分{today_integral}个</div>
+    <div class="box1">
+      <div class="clearfix">
+        <div class="fl">总共习积分</div>
+        <div class="fr tr">{total_integral}个</div>
+      </div>
+    </div>
+<!-- end integral -->
+
+    <a href="javascript:;" class="jilu_btn">积分记录</a>
+
+    <div class="listBox4">
+
+<!-- start lists -->
+      <div class="item nonext">
+        <div class="tempItem">
+          <div class="title text-overflow">{title}</div>
+          <div class="label nobg pl0 text-overflow">{add_time}</div>
+          <div class="rightCenter c_1">{integral}个积分</div>
+        </div>
+      </div>
+<!-- end lists -->
+
+     
+     
+    </div>
+
+  <!-- start nav -->
+  <!-- end nav -->
+  
+  </section>
+
+  <!-- start footer -->
+  <!-- end footer -->
+
+<!-- start page -->
+<input type="hidden" id="url" data-box=".listBox4" data-pages='{total_page}' value="user_integral_page.ajax.php"/>
+<!-- end page -->
+
+
+
+</body>
+
+
+<script type="text/javascript">
+  //下一页
+  utils.isSlideRefresh();
+</script>
+
+
+
+</html>

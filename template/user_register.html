@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<!-- start other_data -->
+<title>注册-{site_title}</title>
+<!-- end other_data -->
+
+
+<!-- start head -->
+<!-- end head -->
+
+</head>
+
+
+
+<body>
+
+  <header class="common_header clearfix">
+    <div class="headBox tc">立即注册</div>
+    <a href="javascript:;" class="fl back_btn notxt" onclick="window.history.go(-1)">返回</a>
+  </header>
+
+
+  <section class="content_box denglu">
+
+      <form method="post" action="user_register_make.php" id="form_box">
+
+      <div class="formBox mt50 clearfix phoneBox">
+        <input type="text" placeholder="请输入手机号" name="phone" id="phone">
+      </div>
+
+     <!-- <div class="formBox clearfix yzmBox">
+        <input type="text" placeholder="请输入验证码" name="code" id="code">
+        <a href="#" class="getyzb_btn" onclick="send_code()" id="send_code">发送验证码</a>
+      </div>-->
+
+      <div class="formBox clearfix passwordBox">
+        <input type="password" placeholder="请输入登录密码" name="password1" id="password1">
+        <i class="showHide" onclick="showHide('password1')"></i>
+      </div>
+
+      <div class="formBox clearfix passwordBox">
+        <input type="password" placeholder="请再次输入登录密码" name="password2" id="password2">
+        <i class="showHide" onclick="showHide('password2')"></i>
+      </div>
+
+      <input type="submit" value="立即注册" class="submit_btn" name="">
+
+      <div class="fs22 color6 mt35">注册即代表同意我们的<a href="#">《用户协议》</a></div>
+
+    </form>
+  </section>
+
+
+
+  <!-- start footer -->
+  <!-- end footer -->
+
+
+</body>
+
+
+
+<script type="text/javascript">
+    
+    var is_can_send = true;
+
+    function send_code()
+    {
+       var phone = $("#phone").val();
+
+        if( !is_can_send )
+        {
+            alert('已发送验证码!');
+            return ;
+        }
+
+        $.ajax
+         ({
+             url: "register_send_code.ajax.php",  
+             data: "phone="+phone,
+             type:'post',
+             async: true,
+             dataType: 'text',
+             error: function(){  
+                 alert('error');  
+             },  
+             success: function(data)
+             {  
+                if( data == 'ok' )
+                {
+                    $("#send_code").html('已发送验证码');
+
+                    is_can_send = false;
+                }
+                else
+                {
+                    alert(data);
+                }
+             }
+
+         });
+
+    }
+
+
+</script>
+
+
+</html>

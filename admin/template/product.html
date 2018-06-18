@@ -1,0 +1,287 @@
+<!doctype html>
+<html class="no-js">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>后台管理</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="table">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="stylesheet" href="js/amazeui/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="js/amazeui/css/admin.css">
+</head>
+
+
+<style type="text/css">
+  .special
+  {
+    color: orange;
+    font-weight: bold;
+  }
+</style>
+
+<body>
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+
+
+<!-- start nav -->
+<!-- end nav -->
+
+<div class="am-cf admin-main">
+
+  <!-- start menu -->
+  <!-- end menu -->
+
+
+  <!-- content start -->
+  <div class="admin-content">
+    <div class="admin-content-body">
+    
+      <div class="am-cf am-padding am-padding-bottom-0">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">商品</strong> / <small>商品</small></div>
+      </div>
+
+      <hr>
+
+      <div class="am-g">
+
+        <div class="am-u-sm-12">
+        <form action="product.php" method="get">
+
+            商品id
+            <input type="text" class="am-form-field am-input-sm" name="product_id" id="product_id" style="display: inline;width: 200px">
+
+            商品标题
+            <input type="text" class="am-form-field am-input-sm" name="title" id="title" style="display: inline;width: 200px">
+
+
+            <br/>
+            排&nbsp;&nbsp;&nbsp;序
+            <select name="order" id="order" class="am-form-field am-input-sm" style="width: 200px;display: inline;">
+              <option value="no-desc">ID降序</option>      
+              <option value="no-asc">ID升序</option>
+              <option value="price-asc">价格升序</option>
+              <option value="price-desc">价格降序</option>
+              <option value="fee-asc">佣金升序</option>
+              <option value="fee-desc">佣金降序</option>
+              <option value="sale_num-asc">销量升序</option>
+              <option value="sale_num-desc">销量降序</option>
+            </select>
+
+            是否上线
+            <select name="is_online" id="is_online" class="am-form-field am-input-sm" style="width: 200px;display: inline;">
+              <option value=""></option>
+              <option value="Y">是</option>
+              <option value="N">否</option>
+            </select>
+
+            分类
+            <select name="category_no" id="category_no" class="am-form-field am-input-sm" style="width: 200px;display: inline;">
+              <option value=""></option>
+            <!-- start category_no -->
+              <option value="{no}">{title}</option>
+            <!-- end category_no -->
+            </select>
+
+
+
+            <br/>
+
+            添加时间
+            <input type="date" class="am-form-field am-input-sm" placeholder="" style="width: 200px;display: inline;" name="add_time_min" id="add_time_min">
+            ~
+            <input type="date" class="am-form-field am-input-sm" placeholder="" style="width: 200px;display: inline;" name="add_time_max" id="add_time_max">
+            
+            <input type="submit" value="搜索" class="am-btn am-btn-default" style="display: inline;width: 100px"/>
+
+
+
+        </form>
+        </div>
+
+        <br/>
+        <br/>
+
+        <div class="am-u-sm-12 am-u-md-6" style="margin-top: 20px;">
+          <div class="am-btn-toolbar">
+            <div class="am-btn-group am-btn-group-xs">
+              <button type="button" class="am-btn am-btn-default"><a href="product_add.php"><span class="am-icon-plus"></span> 新增</a></button>
+
+              <button type="button" class="am-btn am-btn-default">
+              <a href="javascript:void(0)" onclick="delete_more_make('product_delete_more.php')" class="am-text-danger"><span class="am-icon-trash-o"></span> 删除</a></button>
+
+              <button type="button" class="am-btn am-btn-default"><a href="javascript:;" onclick="modify_make('product_online.php', 'is_online', 'Y')"><span class="am-icon-plus"></span> 上线</a></button>
+
+              <button type="button" class="am-btn am-btn-default"><a href="javascript:;"  onclick="modify_make('product_online.php', 'is_online', 'N')"><span class="am-icon-plus"></span> 下线</a></button>
+
+            </div>
+          </div>
+        </div>
+
+
+
+      </div>
+
+      <div class="am-g">
+        <div class="am-u-sm-12">
+          <form class="am-form">
+            <table class="am-table am-table-striped am-table-hover table-main">
+              <thead>
+              <tr>
+                <th class="table-check">
+                <input type="checkbox" onclick="more_choose(this)" /></th>
+                <th class="table-id">ID</th>
+                <th class="table-title">分类</th>
+                <th class="table-title">上/下线</th>
+                <th class="table-title">商品id</th>
+                <th class="table-title">商品名称</th>
+                <th class="table-title">商品主图</th>
+                <th class="table-title">价格(元)</th>
+                <th class="table-title">佣金(元)</th>
+                <th class="table-title">销量(个)</th>
+                <th class="table-title">优惠卷面额</th>
+                <th class="table-title">优惠卷开始/结束</th>
+                <th class="table-date">添加时间<br/>修改时间</th>
+                <th class="table-set">操作</th>
+              </tr>
+              </thead>
+              <tbody>
+           <!-- start list -->
+              <tr>
+                <td><input type="checkbox" name="noList[]" value="{no}"/></td>
+                <td>{no}</td>
+                <td>
+                <a href="cagegory_modify.php?no={category_no}">{category_title}</a>
+                </td>
+                <td style="color: red;font-weight: bold;">{is_online_title}</td>
+                <td>               
+                      {product_id}
+                </td>
+                <td>
+                 <img src="/images/{shop_pic}"/>
+                <a href="{detail_url}">{title}</a>
+                </td>
+                <td>
+                <img src="{pic_url}" style="width: 50px;height: 50px" />
+                </td>
+                <td><span class="special">{price}</span></td>
+
+                <td><span class="special">{fee}</span></td>
+
+                <td><span class="special">{sale_num}</span></td>
+
+                <td>{coupon_title}</td>
+                <td>
+                  <span style="color:#4c036e;font-weight: bold;">{coupon_start_date}</span><br/>
+                  <span style="color:#B165d4;font-weight: bold;">{coupon_end_date}</span></td>
+                <td>
+                <span style="color: #4c036e;font-weight: bold;">{add_time}</span><br/>
+                <span style="color: #B165d4;font-weight: bold;">{update_time}</span>
+                </td>
+                <td>
+                  <div class="am-btn-toolbar">
+                    <div class="am-btn-group am-btn-group-xs">
+
+                      <button class="am-btn am-btn-default am-btn-xs am-text-secondary">
+                      <a href="product_modify.php?no={no}"><span class="am-icon-pencil-square-o"></span> 
+                      编辑</a></button>
+
+                      <button class="am-btn am-btn-default am-btn-xs am-hide-sm-only"><a href="javascript:;" onclick="delete_one_make('product_delete.php', {no})" class="am-text-danger"><span class="am-icon-trash-o"></span>&nbsp;&nbsp;删除</a></button>
+
+                    </div>
+                  </div>
+                </td>
+              </tr>
+            <!-- end list -->
+
+              </tbody>
+            </table>
+
+<form name="PageForm" action="product.php" method="get">
+<!-- start search -->
+<input type="hidden" name="order" value="{order}">
+<input type="hidden" name="product_id" value="{product_id}">
+<input type="hidden" name="add_time_min" value="{add_time_min}">
+<input type="hidden" name="add_time_max" value="{add_time_max}">
+<input type="hidden" name="is_online" value="{is_online}">
+<input type="hidden" name="title" value="{title}">
+<input type="hidden" name="category_no" value="{category_no}">
+
+<!-- end search -->
+
+<!-- start page_list -->
+
+            <div class="am-cf">
+              共 {total_count} 条记录, 共 {total_page} 页
+              <div class="am-fr">
+
+                <ul class="am-pagination">
+
+                  <li><a href="product.php?page=1&{get}">«</a></li>
+
+                  <li><a href="product.php?page={previous_page}&{get}">‹</a></li>
+
+                  <!-- start previous -->
+                   <li><a href="product.php?page={previous}&{get}">{previous}</a>
+                   </li>
+                  <!-- end previous -->
+
+                  <li><a href="product.php?page={page}&{get}">{page}</a></li>
+
+                  <!-- start next -->
+                  <li><a href="product.php?page={next}&{get}">{next}</a></li>
+                  <!-- end next -->
+                  <li><a href="product.php?page={next_page}&{get}">›</a></li>
+
+                  <li><a href="product.php?page={last_page}&{get}">»</a></li>
+
+                </ul>
+
+              </div>
+            </div>
+<!-- end page_list -->
+</form>
+
+        </div>
+
+      </div>
+    </div>
+
+  <!-- start footer -->
+  <!-- end footer -->
+
+
+  </div>
+  <!-- content end -->
+</div>
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="js/amazeui/js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="js/amazeui/js/amazeui.min.js"></script>
+<script src="js/amazeui/js/app.js"></script>
+<script src="js/common.js"></script>
+
+
+<!-- start search -->
+<script language="javascript">
+$("#product_id").val("{product_id}");
+$("#add_time_min").val("{add_time_min}");
+$("#add_time_max").val("{add_time_max}");
+$("#order").val("{order}");
+$("#is_online").val("{is_online}");
+$("#title").val("{title}");
+$("#category_no").val("{category_no}");
+
+</script>
+<!-- end search -->
+
+
+</body>
+</html>

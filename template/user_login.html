@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- start other_data -->
+<title>登录-{site_title}</title>
+<!-- end other_data -->
+
+
+<!-- start head -->
+<!-- end head -->
+
+</head>
+
+
+<body>
+  <section class="content_box denglu">
+
+<!-- start other_data -->
+    <div class="headTitle">{site_title}</div>
+<!-- end other_data -->
+
+      <form method="post" action="user_login_check.php" id="login_form">
+
+      <div class="formBox clearfix phoneBox">
+        <input type="text" placeholder="请输入手机号" name="phone">
+      </div>
+      <div class="formBox clearfix passwordBox">
+        <input type="password" placeholder="请输入登录密码" name="password" id="password">
+        <i class="showHide" onclick="showHide('password')"></i>
+      </div>
+      
+      <input type="submit" value="登录" class="submit_btn" name="">
+
+      </form>
+
+    <div class="clearfix fs24 color6 mt60">
+    <!--  <a href="user_forget_password.php" class="fl">忘记密码</a>-->
+      <a href="user_register.php" class="fr">立即注册</a>
+    </div>
+
+    <!--<div class="otherloginBox">
+      <div class="title tc"><span>其他登录方式</span></div>
+      <div class="tc btns clearfix">
+        <a href="https://open.weixin.qq.com/connect/qrconnect?appid=wxf9a98e7cb5750156&redirect_uri=http://e.aixiguan.com/weixin_login.php&response_type=code&scope=snsapi_login&state=STATE#wechat_redirect" class="wx_btn">微信</a>
+        <a href="#" class="qq_btn">QQ</a>
+      </div>
+    </div>-->
+
+
+  </section>
+
+  <!-- start footer -->
+  <!-- end footer -->
+
+</body>
+</html>

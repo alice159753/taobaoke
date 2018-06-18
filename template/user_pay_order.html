@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<!-- start other_data -->
+<title>订单兑换积分-{site_title}</title>
+<!-- end other_data -->
+
+
+<!-- start head -->
+<!-- end head -->
+
+</head>
+
+
+<body class="bgf7">
+  <section class="content_box xingweiyaoqiu pb100">
+    <header class="common_header clearfix">
+      <div class="headBox tc">订单兑换积分</div>
+      <a href="javascript:void(0)" class="fl back_btn notxt" onclick="window.history.go(-1)">返回</a>
+      <a href="javascript:void(0)" class="fr c_1" onclick="form_submit()">提交</a>
+    </header>
+
+    <div class="textBox clearfix">
+      <textarea class="fl" placeholder="订单编号 订单消费的金额审核通过以后会兑换成积分" id="order_no"></textarea>
+    </div>
+
+    
+  <!-- start nav -->
+  <!-- end nav -->
+
+  </section>
+  
+<!-- start footer -->
+<!-- end footer -->
+
+
+</body>
+
+
+
+<script type="text/javascript">
+  function form_submit()
+  {
+      if( $("#order_no").val() == "" )
+      {
+          alert('订单编号不能为空！');
+          return '';
+      }
+
+      myAjax('user_pay_order_make.ajax.php', "order_no="+$("#order_no").val(), 'POST');
+
+      window.history.go(-1);
+  }
+</script>
+
+
+
+</html>

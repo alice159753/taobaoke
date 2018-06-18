@@ -1,0 +1,35 @@
+<!-- start product -->
+    <div class="shop_item" >
+
+        <div class="shop_left">
+          <img data-original="{pic_url}" class="scrollLoading" alt="{title}" src="images/default_shop.png">
+        </div>
+        
+        <div class="shop_right">
+            <h1>{title}</h1>
+            
+            <p class="sales_num">销量:<span>{sale_num}</span>, 优惠卷:<span>({coupon_start_date_format}~{coupon_end_date_format})</span></p>
+            
+            <div class="coupon">
+          <div class="coupon_after">券后:<span>￥<label>{sale_price}</label></span></div>
+
+          <a href="{coupon_link}">
+
+          <div class="coupon_button"><span class="coupon_price">￥<label>{coupon_save_price}</label></span><span class="coupon_botton_text">立即抢券</span></div>
+
+          </a>
+
+      </div>
+                    
+        </div>
+
+    </div>
+<!-- end product -->
+
+
+<script type="text/javascript">
+  
+//懒加载
+jQuery('img').lazyload();
+
+</script>

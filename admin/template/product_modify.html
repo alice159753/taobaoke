@@ -1,0 +1,364 @@
+<!doctype html>
+<html class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>后台管理</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="table">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <link rel="stylesheet" href="js/amazeui/css/amazeui.min.css"/>
+  <link rel="stylesheet" href="js/amazeui/css/admin.css">
+</head>
+<body>
+<!--[if lte IE 9]>
+<p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
+  以获得更好的体验！</p>
+<![endif]-->
+
+  <!-- start nav -->
+  <!-- end nav -->
+
+
+<div class="am-cf admin-main">
+
+  <!-- start menu -->
+  <!-- end menu -->
+
+  <!-- content start -->
+  <div class="admin-content">
+    <div class="admin-content-body">
+      <div class="am-cf am-padding am-padding-bottom-0">
+        <div class="am-fl am-cf"><strong class="am-text-primary am-text-lg">商品</strong> / <small>修改</small></div>
+      </div>
+
+      <hr/>
+
+      <div class="am-g">
+
+        <div class="am-u-sm-12 am-u-md-4 am-u-md-push-8">
+        </div>
+
+<!-- start data -->
+        <div class="am-u-sm-12 am-u-md-8 am-u-md-pull-4">
+          <form class="am-form am-form-horizontal" action="product_modify_make.php" method="post" enctype="multipart/form-data" id="form_box">
+
+          <input type="hidden" value="{no}" name="no"/>   
+
+
+
+
+
+            <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">分类</label>
+              <div class="am-u-sm-9">
+
+                <select name="category_no" id="category_no">
+
+                <!-- start category -->
+                  <option value="{no}">{title}</option>
+                <!-- end category -->
+
+                </select>
+
+              </div>
+            </div>
+
+
+            <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">商品id</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="product_id" value="{product_id}">
+              </div>
+            </div>
+
+            <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">商品名称</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="title" value="{title}">
+              </div>
+            </div>
+
+            <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">商品主图</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="pic_url" value="{pic_url}">
+              </div>
+            </div>
+
+
+            <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">商品详情页链接地址</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="detail_url" value="{detail_url}">
+              </div>
+            </div>
+
+
+            <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">店铺名称</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="shop_name" value="{shop_name}">
+              </div>
+            </div>
+
+            <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">商品价格(单位：元)</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="price" value="{price}">
+              </div>
+            </div>
+
+            <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">商品月销量</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="sale_num" value="{sale_num}">
+              </div>
+            </div>
+
+            <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">收入比率(%)</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="price_ratio" value="{price_ratio}">
+              </div>
+            </div>
+
+            <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">佣金</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="fee" value="{fee}">
+              </div>
+            </div>
+
+
+           <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">活动状态</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="activity_state" value="{activity_state}">
+              </div>
+            </div>
+
+            <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">活动收入比率(%)</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="activity_price_ratio" value="{activity_price_ratio}">
+              </div>
+            </div>
+
+           <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">活动佣金</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="activity_fee" value="{activity_fee}">
+              </div>
+            </div>
+
+           <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">活动开始时间</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="activity_start_date" value="{activity_start_date}">
+              </div>
+            </div>
+
+            <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">活动结束时间</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="activity_end_date" value="{activity_end_date}">
+              </div>
+            </div>
+
+            <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">卖家旺旺</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="sekerclean" value="{sekerclean}">
+              </div>
+            </div>
+
+
+            <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">淘宝客短链接(300天内有效)</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="taobao_short_link" value="{taobao_short_link}">
+              </div>
+            </div>
+
+
+            <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">淘宝客链接</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="taobao_link" value="{taobao_link}">
+              </div>
+            </div>
+
+            <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">淘口令(30天内有效)</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="taobao_command" value="{taobao_command}">
+              </div>
+            </div>
+
+            <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">优惠券总量</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="coupon_num" value="{coupon_num}">
+              </div>
+            </div>
+
+           <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">优惠券剩余量</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="coupon_residue" value="{coupon_residue}">
+              </div>
+            </div>
+
+
+            <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">优惠券面额</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="coupon_title" value="{coupon_title}">
+              </div>
+            </div>
+
+            <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">优惠券节约价格</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="coupon_save_price" value="{coupon_save_price}">
+              </div>
+            </div>
+
+            <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">优惠券开始时间</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="coupon_start_date" value="{coupon_start_date}">
+              </div>
+            </div>
+
+           <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">优惠券结束时间</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="coupon_end_date" value="{coupon_end_date}">
+              </div>
+            </div>
+
+            <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">优惠券短链接(300天内有效)</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="coupon_short_link" value="{coupon_short_link}">
+              </div>
+            </div>
+
+            <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">优惠券链接</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="coupon_link" value="{coupon_link}">
+              </div>
+            </div>
+
+
+           <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">优惠券淘口令(30天内有效)</label>
+              <div class="am-u-sm-9">
+                <input type="text" class="am-input-sm" name="coupon_command" value="{coupon_command}">
+              </div>
+            </div>
+
+            <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">是否为营销计划商品</label>
+              <div class="am-u-sm-9">
+
+                <select name="is_marketing" id="is_marketing">
+                  <option value="是">是</option>
+                  <option value="否">否</option>
+                </select>
+
+              </div>
+            </div>
+
+
+            <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">标签</label>
+              <div class="am-u-sm-9">
+
+               <textarea style="height: 100px;" name="label">{label}</textarea>
+               <p>以英文逗号","分割</p>
+              </div>
+            </div>
+
+            <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">product_info</label>
+              <div class="am-u-sm-9">
+
+               <textarea style="height: 300px;">{product_info}</textarea>
+
+              </div>
+            </div>
+
+
+            <div class="am-form-group">
+              <label for="admin-name" class="am-u-sm-3 am-form-label">是否上线</label>
+              <div class="am-u-sm-9">
+
+                <select name="is_online" id="is_online">
+                  <option value="Y">是</option>
+                  <option value="N">否</option>
+                </select>
+
+              </div>
+            </div>
+
+            <div class="am-form-group">
+              <div class="am-u-sm-9 am-u-sm-push-3">
+                <button type="button" class="am-btn am-btn-primary" onclick="form_submit()">保存</button>
+
+                <button type="button" class="am-btn am-btn-primary" onclick="window.history.go(-1)">返回</button>
+
+              </div>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+
+<!-- end data -->
+
+  <!-- start footer -->
+  <!-- end footer -->
+
+  </div>
+  <!-- content end -->
+
+</div>
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="js/amazeui/js/jquery.min.js"></script>
+<!--<![endif]-->
+<script src="js/amazeui/js/amazeui.min.js"></script>
+<script src="js/amazeui/js/app.js"></script>
+<script src="js/common.js"></script>
+
+<script type="text/javascript">
+  function form_submit()
+  {
+      var url = $('#form_box').attr('action');
+      var param = $('#form_box').serialize();
+      
+      myAjax(url, param, 'POST');
+  }
+
+</script>
+
+
+<!-- start data -->
+<script type="text/javascript">
+  $("#is_marketing").val('{is_marketing}');
+  $("#is_online").val('{is_online}');
+  $("#category_no").val('{category_no}');
+
+</script>
+<!-- end data -->
+
+
+</body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<!-- start other_data -->
+<title>我的收藏头条-{site_title}</title>
+<!-- end other_data -->
+
+<!-- start head -->
+<!-- end head -->
+</head>
+
+<body class="bgf7">
+
+  <section class="content_box wo bgf pb100">
+
+    <header class="common_header clearfix">
+      <div class="headBox tc">我的收藏头条</div>
+      <a href="javascript:void(0)" class="fl back_btn notxt" onclick="window.history.go(-1)">返回</a>
+    </header>
+
+
+
+    <!-- start empty -->
+    <div class="empty mt20">
+      <img src="images/empty.png">
+    </div>
+
+    <div class="empty mt20">
+    <p class="fs35">当前没有收藏头条, <a href="subject.php" class="">点击收藏>></a></p>
+    </div>
+
+    <!-- end empty -->
+
+
+    <div class="mod articles" id="articles_box">
+
+        <!-- start subject -->
+            <div class="article-info pictures">
+
+            <div class="title">
+                <a href="{url}" target="_blank">
+                {title}
+                </a>
+            </div>
+
+            <div class="picture-list">
+
+        <!-- start pic -->
+            <p class="art-img">
+            <a href="{url}" class="pic" target="_blank">
+            <img data-original="{pic_url}" src="images/default_shop.png">
+            </a>
+            </p>
+        <!-- end pic -->
+
+            <p class="picture-more">
+            <a href="{url}" target="_blank">
+            查看详情 &gt;</a>
+            </p>
+            </div>
+            <div class="art-other">
+            <div class="author">
+            <a href="{url}" target="_blank">{author}</a>
+            <p class="info">&nbsp;&nbsp;09-28
+            &nbsp;&nbsp;&nbsp;&nbsp;阅读&nbsp;({view_count})</p>
+            </div>
+
+            </div>
+            </div>
+
+        <!-- end subject -->
+
+
+    </div>
+
+
+    <!-- start page -->
+    <input type="hidden" id="url" data-box="#articles_box" data-pages="{total_page}" value="user_collect_subject_page.ajax.php"/>
+    <!-- end page -->
+
+
+    <!-- start nav -->
+    <!-- end nav -->
+
+  </section>
+  
+<!-- start footer -->
+<!-- end footer -->
+
+
+</body>
+
+<script type="text/javascript">
+
+    //下一页
+    utils.isSlideRefresh();
+
+   //懒加载
+   jQuery('img').lazyload();
+
+</script>
+
+
+
+</html>

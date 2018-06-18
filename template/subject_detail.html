@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- start other_data -->
+<title>{title}-{site_title}</title>
+<!-- end other_data -->
+
+
+<!-- start head -->
+<!-- end head -->
+
+</head>
+
+
+<body>
+
+  <header class="common_header clearfix">
+    <div class="headBox tc">专题</div>
+    <a href="javascript:;" class="fl back_btn notxt" onclick="window.history.go(-1)">返回</a>
+  </header>
+
+
+  <section class="content_box zixun pb100">
+    <div class="h24 bgf"></div>
+
+    <!-- start subject -->
+    <input type="hidden" name="article_no" id="article_no" value="{no}"/>
+
+    <div class="pl40 pr40">
+      <div class="title mt10 linH68 fs38">{title}</div>
+      <div class="linH106 c_1 text-overflow fs26">来源：{author}  {pubdate} 浏览量：{view_count}</div>
+      <div class="zx_content">
+        <div id="content" style="margin: 0px;padding:0px">{content}</div>
+      </div>
+      <div class="playBtns">
+        <a href="javascript:;" class="share_btn" onclick="share()">分享</a>
+        <a href="javascript:;" class="shoucang_btn {css_style}" onclick="collect()" id="collect">收藏</a>
+      </div>
+    </div>
+    <!-- end subject -->
+
+    <div class="h10 bgf"></div>
+    <div class="h10 bgf"></div>
+
+
+
+<!-- start nav -->
+<!-- end nav -->
+
+  </section>
+  
+
+<div class="dialogBox nodis" id="share_box">
+  <div class="dialogBg"></div>
+  <div class="dialogCon bgf">
+    <div class="shareBox tc">
+        <div class="title"><span>分享到</span></div>
+        <div class="btns clearfix">
+        <a href="#" onclick="call('wechatFriend')" class="wx_btn text-overflow">微信</a>
+        <a href="#" onclick="call('wechatTimeline')" class="pyq_btn text-overflow">朋友圈</a>
+        <a href="#" onclick="call('qqFriend')" class="qq_btn text-overflow">QQ</a>
+        <a href="#"  onclick="call('qZone')" class="kj_btn text-overflow">空间</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="dialogBox nodis" id="copy_box">
+  <div class="dialogBg"></div>
+  <div class="dialogCon">
+    <div class="copyBox">
+      <a href="#"><span class="copy_box">复制链接</span></a>
+    </div>
+  </div>
+</div>
+
+
+
+
+</body>
+
+<!-- start footer -->
+<!-- end footer -->
+
+
+<script type="text/javascript" src="js/clipboard/dist/clipboard.min.js"></script>
+<script type="text/javascript" src="js/myshare.js"></script>
+
+<script type="text/javascript">
+
+//设置图片的宽度
+    $(document).ready(function(){
+        
+        var width = $(".content_box").width();
+
+        $("#content img").attr("style", '');
+
+        $("#content img").css("max-width", width-40);
+
+    });
+
+
+  function collect()
+  {
+     var collect = $("#collect").hasClass('active');
+     collect = collect == false ? 'collect' : 'cancel_collect';
+
+     var article_no = $("#article_no").val();
+
+     $.ajax
+         ({
+             url: "subject_collect.ajax.php",  
+             data: "collect="+collect+"&article_no="+article_no,
+             type:'post',
+             async: true,
+             dataType: 'text',
+             error: function(){  
+                 alert('error');  
+             },  
+             success: function(data)
+             {  
+                if( data != 'ok' )
+                {
+                  alert(data);
+                  window.location.href = 'user_login.php';
+                  return '';
+                }
+
+                //当前收藏
+                if( collect == 'collect' )
+                {
+                   $("#collect").addClass('active');
+                }
+                else
+                {
+                    $("#collect").removeClass('active');
+                }
+             }
+
+         });
+  }
+
+
+  function share()
+  {
+      $("#copy_box").addClass('nodis');
+      $("#share_box").removeClass('nodis');
+  }
+
+</script>
+
+
+<!-- 分享 -->
+<!-- start subject -->
+<script>
+    var nativeShare = new NativeShare()
+    var shareData = {
+        title: '{title}',
+        desc: '{description}',
+        // 如果是微信该link的域名必须要在微信后台配置的安全域名之内的。
+        link: '{url}',
+        icon: '{thumb_pic}',
+        // 不要过于依赖以下两个回调，很多浏览器是不支持的
+        success: function() {
+            //alert('success')
+        },
+        fail: function() {
+            //alert('fail')
+        }
+    }
+
+    nativeShare.setShareData(shareData);
+
+    function call(command) 
+    {
+        try 
+        {
+            nativeShare.call(command);
+        } 
+        catch (err) 
+        {
+            alert('当前浏览器不支持分享，请复制粘贴');
+
+            $("#share_box").addClass('nodis');
+            $("#copy_box").removeClass('nodis');
+
+            //alert(err.message);
+        }
+    }
+
+    function setTitle(title) 
+    {
+        nativeShare.setShareData({
+            title: title,
+        })
+    }
+
+</script>
+<!-- end subject -->
+
+
+<!-- 复制粘贴 -->
+
+<!-- start subject -->
+<script>
+var clipboard = new Clipboard('.copy_box', {
+       text: function() {
+           return '{url}';
+       }
+});
+
+clipboard.on('success', function(e) {
+    alert('复制成功!');
+    $("#copy_box").addClass('nodis');
+});
+
+clipboard.on('error', function(e) {
+    alert('复制失败!');
+    $("#copy_box").addClass('nodis');
+});
+
+</script>
+<!-- end subject -->
+
+
+
+<!-- start footer -->
+<!-- end footer -->
+
+</html>

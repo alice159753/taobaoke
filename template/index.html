@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- start other_data -->
+<title>首页-{site_title}</title>
+<!-- end other_data -->
+
+<!--<script src="js/jquery1.42.min.js"></script>
+<link rel="stylesheet" href="/js/loader/loader.css">
+<script src="/js/loader/loader.js"></script>
+<script type="text/javascript">
+
+// 等待所有加载
+$(window).load(function(){
+  removeLoading('loader');
+}); 
+
+</script>-->
+
+
+<!-- start head -->
+<!-- end head -->
+
+
+
+
+</head>
+
+<body id="back_top" class="bgf7">
+
+    <section class="content_box bgf7 index pb100">
+
+        <div class="common_selectBox fs30">
+
+          <form action="product_search_lists.php" method="post">
+            <input class="pl84" placeholder="输入淘宝/天猫商品标题或关键字" type="text" id="keyword" name="keyword" autocomplete="off">
+            <input type="submit" value="搜索" name="">
+          </form>
+
+        </div>
+
+        <div class="swiper-container bannerBox mt10">
+          <div class="swiper-wrapper">
+
+            <!-- start slideshow -->
+            <div class="swiper-slide">
+            <a href="{url}"><img src="{pic}" alt="{title}"></a>
+            </div>
+            <!-- end slideshow -->            
+
+          </div>
+          <div class="swiper-pagination pagination1"></div>
+        </div>
+
+
+        <div class="swiper-container bannerBox1 bgf mt7">
+          <div class="swiper-wrapper">
+
+            <div class="swiper-slide">
+              <div class="clearfix menuBox1">
+              <!-- start category_1 -->
+                <a href="product_lists.php?category_no={no}" style="background-image: url('{pic}')">{title}</a>
+              <!-- end category_1 -->
+              </div>
+            </div>
+
+            <!-- 第二页内容 -->
+            <!-- start category_page2 -->
+            <div class="swiper-slide">
+              <div class="clearfix menuBox1">
+              <!-- start category_2 -->
+                <a href="product_lists.php?category_no={no}" style="background-image: url('{pic}')">{title}</a>
+              <!-- end category_2 -->
+              </div>
+            </div>
+            <!-- end category_page2 -->
+
+          </div>
+          <div class="swiper-pagination pagination2"></div>
+        </div>
+
+
+      <div class="baoyoubox shop_box">
+        <ul>
+          <li>
+            <a href="product_lists.php?category_no=20"><img src="/images/9.9.png"></a>
+          </li>
+          <li>
+            <a href="product_lists.php?category_no=21"><img src="/images/19.9.png"></a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="h10 bgf2"></div>
+      <div class="baoyoubox haojuanmenu">
+
+        <a href="taoqianggou_lists.php">
+         <div class="haojuanmenuleftimg">
+        </div>
+        </a>
+
+        <div style="float: right">
+           <div class="haojuanmenurightimg_top"></div>
+
+           <div>
+             <div class="haojuanmenurightimg_down1"></div>
+             <a href="product_lists.php?category_no=23"><div class="haojuanmenurightimg_down2"></div></a>
+           </div>
+        </div>
+
+      </div>
+
+
+
+        <div class="h10 bgf2"></div>
+        <div class="common_title hasl hasl3 clearfix">
+
+          <div class="flBox">
+            <span class="title fl">热门头条</span>
+            <div class="slidupBox xiaoxiBox fl fs26 color3 text-overflow">
+              <div class="tempslid">
+
+              <!-- start subject -->
+                <div class="text-overflow w150">{title}</div>
+              <!-- end subject -->
+
+              </div>
+            </div>
+          </div>
+
+          <div class="frBox clearfix"><a href="subject.php" class="fr more_btn c_1">更多</a></div>
+
+
+        </div>
+
+    <div class="h10 bgf2"></div>
+
+
+    <div class="shop_box" id="shop_box">
+
+    <!-- start product -->
+      <div class="shop_item" >
+
+        <div class="shop_left">
+          <a href="product_detail.php?no={no}">
+    			<img data-original="{pic_url}" class="scrollLoading" alt="{title}" src="images/default_shop.png">
+          </a>
+    		</div>
+    		
+    		<div class="shop_right">
+
+          <p class="sales_num" style="margin:0px">
+           <img src="images/{shop_pic}" style="margin-top: 1px" /> <span style="vertical-align: top">{shop_name}</span>
+          </p>
+
+          <a href="product_detail.php?no={no}">
+    			<h1>
+          
+          {title}
+
+          </h1>
+          </a>
+    			
+          <p class="sales_num">销量:<span>{sale_num}</span>, 优惠卷:<span>({coupon_start_date_format}~{coupon_end_date_format})</span></p>
+
+          <div class="types clearfix">
+              <!-- start label_list -->
+                <span class="color {color}">{label}</span>
+               <!-- end label_list -->
+          </div>
+
+    			<div class="coupon">
+              <div class="coupon_after">券后:<span>￥<label>{sale_price}</label></span></div>
+
+              <a href="product_detail.php?no={no}">
+
+              <!-- start is_coupon -->
+              <div class="coupon_button"><span class="coupon_price">￥<label>{coupon_save_price}</label></span><span class="coupon_botton_text">{coupon_button_title}</span></div>
+              <!-- end is_coupon -->
+
+              <!-- start is_not_coupon -->
+              <div class="coupon_button not"><span class="coupon_not_botton_text">{coupon_button_title}</span></div>
+              <!-- end is_not_coupon -->
+
+
+              </a>
+
+          </div>
+                        
+    		</div>
+
+    	</div>
+    <!-- end product -->
+
+    </div>
+
+
+
+    <!-- start page -->
+    <input type="hidden" id="url" data-box="#shop_box" data-pages="{total_page}" value="product_page.ajax.php"/>
+    <!-- end page -->
+
+
+    <!-- start nav -->
+    <!-- end nav -->
+
+    <!-- start top -->
+    <!-- end top -->
+
+
+    </section>
+    		
+</body>
+	
+<!-- start footer -->
+<!-- end footer -->
+
+
+
+	<script>
+	var swiper = new Swiper(".bannerBox", {
+                pagination: ".bannerBox .swiper-pagination",
+                paginationClickable: !0,
+                autoplay: 2e3,
+                preventClicks: !1
+            })
+
+
+        if ($(".bannerBox1").length > 0) {
+            new Swiper(".bannerBox1", {
+                pagination: ".bannerBox1 .swiper-pagination",
+                paginationClickable: !0,
+                preventClicks: !1
+            })
+        }
+        
+        //下一页
+        utils.isSlideRefresh();
+
+		$(".slidupBox").length > 0 && $(".slidupBox").slide({
+            mainCell: ".tempslid",
+            autoPage: !0,
+            effect: "top",
+            autoPlay: !0,
+            vis: 1
+        })
+
+       //懒加载
+      jQuery('img').lazyload();
+
+
+  /*$('body').loading({
+      loadingWidth:240,
+      title:'请稍等!',
+      name:'loader',
+      discription:'拼命加载中',
+      direction:'column',
+      type:'origin',
+      // originBg:'#71EA71',
+      originDivWidth:40,
+      originDivHeight:40,
+      originWidth:6,
+      originHeight:6,
+      smallLoading:false,
+      loadingMaskBg:'rgba(0,0,0,0.2)'
+  });*/
+
+ 
+	</script>
+
+</html>

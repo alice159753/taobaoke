@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!-- start other_data -->
+<title>超级搜索-{site_title}</title>
+<!-- end other_data -->
+
+<!-- start head -->
+<!-- end head -->
+</head>
+
+<body>
+        
+    <section class="content_box index pb100">
+
+        <div class="common_selectBox fs30">
+        <!-- start search -->
+          <form action="product_search_lists.php" method="post" id="form_box">
+            <input class="pl84" placeholder="按商品标题搜索" type="text" id="keyword" name="keyword" value="{keyword}" autocomplete="off" onchange="show_box()">
+            <input type="submit" value="搜索" name="">
+          </form>
+        <!-- end search -->
+
+        </div>
+
+    <div id="hot_search_box"  style="display: none">
+
+    <div class="h10 bgf2"></div>
+
+      <div class="hot-search">
+          <div class="hot-search-head cf">
+            <p>热门搜索</p>
+            <i class="around-pic displayNone" id="searchland3"></i>
+          </div>
+
+          <div id="searchland5" class="hot-search-tags">
+
+            <!-- start hot_search -->
+              <span><a href="javascript:void(0);" onclick="hot_search_make('{title}')">{title}</a></span>
+            <!-- end hot_search -->
+
+          </div>
+
+      </div>
+      
+    </div>
+
+
+    <!-- start empty -->
+    <div  id="empty_box">
+      <div class="empty mt20">
+        <img src="images/empty.png">
+      </div>
+
+      <div class="empty mt20">
+      <p class="fs35">sorry没有该宝贝, <a href="javascript:;" class="" onclick="suggest_make()">通知掌柜>></a></p>
+      </div>
+    </div>
+    <!-- end empty -->
+
+
+
+    <div class="shop_box" id="shop_box">
+
+    <!-- start product -->
+      <div class="shop_item" >
+
+        <div class="shop_left">
+          <a href="product_detail.php?no={no}">
+          <img data-original="{pic_url}" class="scrollLoading" alt="{title}" src="images/default_shop.png">
+          </a>
+        </div>
+        
+        <div class="shop_right">
+          <a href="product_detail.php?no={no}">
+          <h1>
+          <img src="images/taobao.png" />
+          {title}
+
+          </h1>
+          </a>
+          
+          <p class="sales_num">销量:<span>{sale_num}</span>, 优惠卷:<span>({coupon_start_date_format}~{coupon_end_date_format})</span></p>
+
+          <div class="types clearfix">
+              <!-- start label_list -->
+                <span class="color {color}">{label}</span>
+               <!-- end label_list -->
+          </div>
+
+          <div class="coupon">
+              <div class="coupon_after">券后:<span>￥<label>{sale_price}</label></span></div>
+
+              <a href="{coupon_link}">
+
+
+              <!-- start is_coupon -->
+              <div class="coupon_button"><span class="coupon_price">￥<label>{coupon_save_price}</label></span><span class="coupon_botton_text">{coupon_button_title}</span></div>
+              <!-- end is_coupon -->
+
+              <!-- start is_not_coupon -->
+              <div class="coupon_button not"><span class="coupon_not_botton_text">{coupon_button_title}</span></div>
+              <!-- end is_not_coupon -->
+
+              
+              </a>
+
+          </div>
+                        
+        </div>
+
+      </div>
+    <!-- end product -->
+
+    </div>
+
+    <!-- start page -->
+    <input type="hidden" id="url" data-box="#shop_box" data-data='{data}' data-pages="{total_page}" value="product_search_lists_page.ajax.php"/>
+    <!-- end page -->
+
+
+    <!-- start nav -->
+    <!-- end nav -->
+
+
+    </section>
+            
+</body>
+    
+<!-- start footer -->
+<!-- end footer -->
+
+  <script type="text/javascript">
+    
+    function suggest_make()
+    {
+        myAjax('user_suggest_make.ajax.php', "content=搜索关键字没有找到宝贝:"+$("#keyword").val(), 'POST');
+    }
+
+    function hot_search_make(keyword)
+    {
+        $("#keyword").val(keyword);
+
+        $("#form_box").submit();
+    }
+
+    function show_box()
+    {
+        var keyword = $("#keyword").val();
+
+        if( keyword == "" )
+        {
+            $("#hot_search_box").css('display', 'block');
+
+            $("#empty_box").css('display', 'none');
+            $("#shop_box").css('display', 'none');
+
+        }
+    }
+
+  </script>
+
+
+
+
+    <script>
+
+      //下一页
+      utils.isSlideRefresh();
+
+       //懒加载
+      jQuery('img').lazyload();
+
+    </script>
+
+</html>
