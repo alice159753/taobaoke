@@ -24,6 +24,10 @@
             $_SESSION['user_nickname'] = isset($userRow['nickname']) ? $userRow['nickname'] : '';
             $_SESSION['unionid'] = isset($userRow['unionid']) ? $userRow['unionid'] : '';
 
+            //记录登录时间
+            $myUserLogin = new UserLogin($this->myMySQL);
+            $myUserLogin->login($userRow);
+
             header('Location:index.php');
         }
 

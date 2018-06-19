@@ -5,6 +5,7 @@
     $myProduct = new Product($myMySQL);
     $myArticle = new Article($myMySQL);
     $myUserCollect = new UserCollect($myMySQL);
+    $myUserFootPrint = new UserFootPrint($myMySQL);
 
     $no = !empty($_REQUEST["no"]) ? $_REQUEST["no"] : 0;
     $user_no = !empty($_REQUEST["user_no"]) ? $_REQUEST["user_no"] : 0;
@@ -12,7 +13,6 @@
     if( empty($no) )
     {
         Output::error('1', '该宝贝不存在');
-
     }
 
     $condition = "no = $no AND is_online = 'Y'";
@@ -33,7 +33,7 @@
 
     if( !empty($user_no) )
     {
-        $userCollectRow = $myUserCollect->getRow("*","user_no = ".$_SESSION['user_no']." AND product_no = $no");
+        $userCollectRow = $myUserCollect->getRow("*","user_no = ".$user_no." AND collect_no = $no AND collect_type = 1");
     }
 
     //判断是否收藏
@@ -126,6 +126,9 @@
         
         $result['likeLists'][] = $dataArray;
     }
+
+    //添加到浏览记录
+    $myUserFootPrint->foot($no, $user_no);
 
     Output::succ('', $result);
     

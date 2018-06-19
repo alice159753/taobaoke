@@ -4,7 +4,7 @@
     $basename = str_replace(array(".php", "_add", "_add_make", "_modify", "_modify_make", "_delete","_delete_more"), "", $basename);
 
     $converName = array('category' => 'product','slideshow' => 'product','taoqianggou'=>'product',
-                        'suggest' => 'user','user_integral' => 'user', 'pay_order' => 'user', 'search' => 'user', 'open_user' => 'user',
+                        'suggest' => 'user','user_integral' => 'user', 'pay_order' => 'user', 'search' => 'user', 'open_user' => 'user','user_login' => 'user','user_collect' => 'user','user_footprint' => 'user',
                         'system_config' => 'baseconfig','admin' => 'baseconfig', 'role' => 'baseconfig', 
 
 
