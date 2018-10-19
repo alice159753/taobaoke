@@ -31,16 +31,18 @@
             $dataArray['{update_time}']   = $row['update_time'];
             $dataArray['{is_show}']       = $row['is_show'];
             $dataArray['{is_show_title}'] = $isShowMap[ $row['is_show'] ];
-            $dataArray['{top}']           = $row['top'];
             $dataArray['{parent_title}']  = "";
             $dataArray['{parent_no}']     = $row['parent_no'];
+            $dataArray['{sort}']          = $row['sort'];
 
-            $dataArray['{parent_style}'] = '';
+            $dataArray['{parent_style}'] = 'parent_style';
             if( !empty($row['parent_no']) )
             {
                 $dataArray['{parent_title}'] = $this->getValue("title", "no = ". $row['parent_no']);
                 $dataArray['{category_style}'] = 'children_style';
             }
+
+            $dataArray['{show_checkbox}'] = $row['is_show'] == 'Y' ? 'checked' : '';
 
             return $dataArray;
         }
@@ -57,7 +59,7 @@
             $dataArray['update_time']   = $row['update_time'];
             $dataArray['is_show']       = $row['is_show'];
             $dataArray['is_show_title'] = $isShowMap[ $row['is_show'] ];
-            $dataArray['top']           = $row['top'];
+            $dataArray['sort']          = $row['sort'];
 
             $dataArray['parent_no']     = $row['parent_no'];
 
@@ -66,6 +68,7 @@
                 $dataArray['parent_title'] = $this->getValue("title", "no = ". $row['parent_no']);
             }
 
+            $dataArray['show_checkbox'] = $row['is_show'] == 'Y' ? 'checked' : '';
 
             return $dataArray;
         }

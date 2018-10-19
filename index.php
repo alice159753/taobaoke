@@ -61,7 +61,7 @@
     }
 
     //分类
-    $rows = $myCategory->getRows("*", "is_show = 'Y' ORDER BY top DESC");
+    $rows = $myCategory->getRows("*", "is_show = 'Y' ORDER BY sort ASC");
 
     for($i = 0; isset($rows[$i]) && $i < 8; $i++)
     {

@@ -334,6 +334,40 @@ class TaobaoApi
 
     }
 
+    function getMaterial()
+    {
+        $c = new TopClient;
+        $c->appkey = $appkey;
+        $c->secretKey = $secret;
+        $req = new TbkDgMaterialOptionalRequest;
+        $req->setStartDsr("10");
+        $req->setPageSize("20");
+        $req->setPageNo("1");
+        $req->setPlatform("1");
+        $req->setEndTkRate("1234");
+        $req->setStartTkRate("1234");
+        $req->setEndPrice("10");
+        $req->setStartPrice("10");
+        $req->setIsOverseas("false");
+        $req->setIsTmall("false");
+        $req->setSort("tk_rate_des");
+        $req->setItemloc("杭州");
+        $req->setCat("16,18");
+        $req->setQ("女装");
+        $req->setHasCoupon("false");
+        $req->setIp("13.2.33.4");
+        $req->setAdzoneId("123");
+        $req->setNeedFreeShipment("true");
+        $req->setNeedPrepay("true");
+        $req->setIncludePayRate30("true");
+        $req->setIncludeGoodRate("true");
+        $req->setIncludeRfdRate("true");
+        $req->setNpxLevel("2");
+        $resp = $c->execute($req);
+
+        print_r($resp);
+    }
+
 }
 
 

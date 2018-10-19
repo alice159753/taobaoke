@@ -19,7 +19,9 @@
         $dataArray = array();
         $dataArray['update_time'] = date('Y-m-d H:i:s');
 
-        $coupon_command = $myTaobaoApi->makeTaokouling($rows[$i]['title'], $rows[$i]['taobao_link'], $rows[$i]['pic_url']);
+        $link = empty($rows[$i]['taobao_link']) ? $rows[$i]['coupon_link'] : $rows[$i]['taobao_link'];
+
+        $coupon_command = $myTaobaoApi->makeTaokouling($rows[$i]['title'], $link, $rows[$i]['pic_url']);
 
         if( empty($coupon_command) )
         {

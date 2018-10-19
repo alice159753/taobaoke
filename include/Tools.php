@@ -201,6 +201,68 @@ class Tools
         return $pageURL;
     }
 
+
+//$lists = $this->sortArrByManyField($lists, array('field' =>'is_exclusive', 'sort'=> SORT_DESC, 'length' => 1), array('field' =>'total_click_num', 'sort'=> SORT_DESC));
+    function sortArrByManyField()
+    {
+        //获得所有的方法参数
+        $args = func_get_args();
+
+        if(empty($args))
+        {
+            return null;
+        }
+
+        //删除数组第一个元素并返回删除的第一个元素
+        $arr = array_shift($args);
+        $all_length = count($arr);
+
+        if(!is_array($arr))
+        {
+            return null;
+        }
+
+        $result = array();
+
+        foreach($args as $key => $item)
+        {
+            if( is_array($item) )
+            {
+                $field  = $item['field'];
+                $length = isset($item['length']) ? $item['length'] : 0;
+
+                $temp = array();
+                foreach($arr as $index => $val)
+                {
+                    $temp[$index] = $val[$field];
+                }
+
+                $args[$key] = $temp;
+
+                array_multisort($temp, $item['sort'], $arr);
+
+                if( $length > 0 )
+                {
+                    $arrtemp = array_slice($arr, 0, $length);
+                    $arr = array_slice($arr, $length, (count($arr) - $length));
+                    $result = array_merge($result, $arrtemp);
+                }
+                else
+                {
+                    $result = array_merge($result, $arr);
+                }
+            }
+        }
+
+        if( count($result) < $all_length )
+        {
+            $result = array_merge($result, $arr);
+        }   
+
+        $result = array_values($result);
+
+        return $result;
+    }
 }
 
 
